@@ -20,7 +20,7 @@ mouse left click: zoom in
 
 mouse right click: zoom out
 
-Moving/Rotating the layers
+**Moving/Rotating the layers**
 
 
 Along x axis
@@ -50,8 +50,7 @@ X: select 2nd layer
 C: select 3rd layer
 
 
-Face Rotation
-
+**Face Rotation**
 O: rotate selected face clockwise
 
 U: rotate selected face counter-clockwise
