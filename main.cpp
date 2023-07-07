@@ -48,7 +48,6 @@ void apply_rotation(GLfloat angle){
 
     }
 
-
   for(int i = 0; i < 3; ++i)
     for(int j = 0; j < 3; ++j) {
 
@@ -83,17 +82,13 @@ void set_camera()
 
 }
 
-
 void draw_cube(int x, int y, int z)
 {
 
   vector<cube_rotate> lrot = cube_rotations[x][y][z];
 
   glPushMatrix();
-
-
   glTranslatef((x - 1) * cube_size + x * gap, (y - 1) * cube_size + y * gap, (z - 1) * cube_size + z * gap);
-
 
   for(int i = lrot.size() - 1; i >= 0; --i)
     glRotatef(lrot[i].angle, lrot[i].x, lrot[i].y, lrot[i].z);
@@ -161,14 +156,8 @@ void draw_func(void)
   int x = -cube_size, y = -cube_size, z = -cube_size;
 
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-
-
   glLoadIdentity();
-
-
   set_camera();
-
-
   glRotatef(rot_x, 1.0, 0.0, 0.0);
   glRotatef(rot_y, 0.0, 1.0, 0.0);
 
@@ -176,12 +165,9 @@ void draw_func(void)
     for(int j = 0; j < 3; ++j)
       for(int k = 0; k < 3; ++k) {
 
-
 	draw_cube(i, j, k);
 
       }
-
-
   glutSwapBuffers();
 
 }
@@ -189,8 +175,6 @@ void draw_func(void)
 
 void init_func (void)
 {
-
-
   cube_size = 30.0;
   rot_x = 0.0;
   rot_y = 0.0;
@@ -203,22 +187,12 @@ void init_func (void)
   GLfloat specular_light[4]={1.0, 1.0, 1.0, 1.0};
   GLfloat light_position[4]={0.0, 50.0, 50.0, 1.0};
 
-
   GLfloat specularity[4]={1.0,1.0,1.0,1.0};
   GLint material_specularity = 60;
-
-
   glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-
-
   glShadeModel(GL_SMOOTH);
-
-
   glMaterialfv(GL_FRONT,GL_SPECULAR, specularity);
-
   glMateriali(GL_FRONT,GL_SHININESS,material_specularity);
-
-
   glLightModelfv(GL_LIGHT_MODEL_AMBIENT, ambient_lighte);
 
 
@@ -227,12 +201,9 @@ void init_func (void)
   glLightfv(GL_LIGHT0, GL_SPECULAR, specular_light );
   glLightfv(GL_LIGHT0, GL_POSITION, light_position );
 
-
   glEnable(GL_COLOR_MATERIAL);
-
   glEnable(GL_LIGHTING);
   glEnable(GL_LIGHT0);
-
   glEnable(GL_DEPTH_TEST);
 
   angle=45;
@@ -243,15 +214,9 @@ void load_visualization_parameters(void)
 
   glMatrixMode(GL_PROJECTION);
   glLoadIdentity();
-
-
   gluPerspective(angle,fAspect,0.4,500);
-
-
   glMatrixMode(GL_MODELVIEW);
   glLoadIdentity();
-
-
   set_camera();
 }
 void reshape_func(GLsizei w, GLsizei h)
@@ -259,12 +224,8 @@ void reshape_func(GLsizei w, GLsizei h)
 
   if ( h == 0 ) h = 1;
 
-
   glViewport(0, 0, w, h);
-
-
   fAspect = (GLfloat)w/(GLfloat)h;
-
   load_visualization_parameters();
 }
 void keyboard_func(unsigned char key, int x, int y)
