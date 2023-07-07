@@ -51,6 +51,8 @@ C: select 3rd layer
 
 
 **Face Rotation**
+
+
 O: rotate selected face clockwise
 
 U: rotate selected face counter-clockwise
